@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
-
+const formRoutes = require('./routes/form'); // Import the form routes
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', authRoutes);
+app.use('/api/forms', formRoutes); // Mount the form routes at /api/forms
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://yaseenfiroz:tumkur45@cluster0.nnqznxh.mongodb.net/', {
   useNewUrlParser: true,
